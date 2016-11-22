@@ -38,12 +38,6 @@ body {
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand" href="https://github.com/a12k/reallysimpleweather">Really Simple Weather</a>
         </div>
       </div>
@@ -55,18 +49,16 @@ body {
         <h1>Really Simple Weather</h1>
         <p>A plugin to grab the weather via the Yahoo Weather API, written in pure JavaScript with no dependencies!</p>
         <p><a class="btn btn-primary btn-lg" href="https://github.com/a12k/reallysimpleweather" role="button">Link to the project on Github &raquo;</a></p>
+		<a class="btn btn-primary btn-lg" href="https://a12k.io/reallysimpleweatherfulldata" role="button">Link to simple example of all weather data returned &raquo;</a></p>
       </div>
     </div>
-
     <div class="container">
-      <!-- Example row of columns -->
 	    <div class="row">
         <div class="col-md-4 col-md-offset-4">
 			<h3>Current conditions:</h3>
 		  <div id="weather"></div>
 		  <button class="btn btn-primary btn-lg" id="js-geolocation" style="display: hide;">Use Your Location</button>
         </div>
-
       </div>
 
       <div class="row">
@@ -89,7 +81,7 @@ body {
         </div>
       </div>
 	        <div class="row">
-        <div class="col-md-12" style="background-color: powderblue;">
+        <div class="col-md-12" style="background-color: #49ADE3;">
           <h2><center>Three steps to add live weather data to your site right now:</center></h2>
         </div>
         
@@ -119,6 +111,7 @@ reallySimpleWeather.weather({
     }
 });&lt/script&gt
 </code></pre>
+
 		  
         </div>
         <div class="col-md-4">
@@ -126,13 +119,18 @@ reallySimpleWeather.weather({
 <pre><code>&ltscript src="https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.0.0.min.js"&gt&lt/script&gt</code></pre>
         </div>
       </div>
+	  	   <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+		  <a class="btn btn-primary btn-lg" href="https://a12k.io/reallysimpleweatherfulldata" role="button">Simple example of all weather data returned &raquo;</a></p>
+        </div>
+      </div>
 	  	  	<div class="row">
-        <div class="col-md-6 col-md-offset-3" style="background-color: powderblue;">
+        <div class="col-md-6 col-md-offset-3" style="background-color: #49ADE3;">
 			<h2>Ready to Install?</h2>
-			<h3>Use Bower or Node to Install:</h3>
+			<h4>Use Bower or Node to Install:</h4>
 		<pre><code>bower install reallySimpleWeather</code></pre>
 		  <pre><code>npm install reallySimpleWeather</code></pre>
-		  <h3>Link directly from Amazon, or download it and run locally:</h3>
+		  <h4>Link directly from Amazon, or download it and run locally:</h4>
 		  <pre><code>https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.0.0.min.js</code></pre>
         </div>
 
