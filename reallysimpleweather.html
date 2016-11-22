@@ -81,7 +81,7 @@ body {
         </div>
       </div>
 	        <div class="row">
-        <div class="col-md-12" style="background-color: #49ADE3;">
+        <div class="col-md-12" style="color: #49ADE3;">
           <h2><center>Three steps to add live weather data to your site right now:</center></h2>
         </div>
         
@@ -97,7 +97,7 @@ body {
 		  <pre><code>&ltscript&gt
 reallySimpleWeather.weather({
     location: 'Bend, OR', //your location here
-    woeid: '', // "Where on Earth ID" (if you have one)
+    woeid: '', // "Where on Earth ID"
     unit: 'f', // 'c' also works
     success: function(weather) {
       html = '&lth2&gt&lti class="icon-'+weather.code+'"&gt&lt/i&gt '+weather.temp+'&deg;'+weather.units.temp+'&lt/h2&gt';
