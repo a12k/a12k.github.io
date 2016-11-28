@@ -13,18 +13,31 @@ reallySimpleWeather.weather({
     unit: 'f',
     success: function(weather) {
 	  html = '<p>weather.title: '+weather.title+'</p>';
-      html += '<p>weather.temp: '+weather.temp+'</p>';
+      html += '<p>weather.temp_f: '+weather.temp_f+'</p>';
+	  html += '<p>weather.temp_c: '+weather.temp_c+'</p>';
+      html += '<p>weather.feelslike_f: '+weather.feelslike_f+'</p>';
+      html += '<p>weather.feelslike_c: '+weather.feelslike_c+'</p>';
       html += '<p>weather.currently: '+weather.currently+'</p>';
       html += '<p>weather.high: '+weather.high+'</p>';
+      html += '<p>weather.high_c: '+weather.high_c+'</p>';
       html += '<p>weather.low: '+weather.low+'</p>';
+      html += '<p>weather.low_c: '+weather.low_c+'</p>';
       html += '<p>weather.text: '+weather.text+'</p>';
       html += '<p>weather.humidity: '+weather.humidity+'</p>';
       html += '<p>weather.pressure: '+weather.pressure+'</p>';
-      html += '<p>weather.visbility: '+weather.visibility+'</p>';
+      html += '<p>weather.visbility_mi: '+weather.visibility_mi+'</p>';
+      html += '<p>weather.visbility_km: '+weather.visibility_km+'</p>';
       html += '<p>weather.sunrise: '+weather.sunrise+'</p>';
       html += '<p>weather.sunset: '+weather.sunset+'</p>';
       html += '<p>weather.city: '+weather.city+'</p>';
+	  html += '<p>weather.state: '+weather.state+'</p>';
+	  html += '<p>weather.state_name: '+weather.state_name+'</p>';
       html += '<p>weather.country: '+weather.country+'</p>';
+	  html += '<p>weather.full: '+weather.full+'</p>';
+	  html += '<p>weather.zip: '+weather.zip+'</p>';
+	  html += '<p>weather.latitude: '+weather.latitude+'</p>';
+	  html += '<p>weather.longitude: '+weather.longitude+'</p>';
+	  html += '<p>weather.elevation: '+weather.elevation+'</p>';
       html += '<p>weather.updated: '+weather.updated+'</p>';
       html += '<p>weather.link: '+weather.link+'</p>';
 
@@ -32,17 +45,13 @@ reallySimpleWeather.weather({
       html += '<p>weather.wind.direction: '+weather.wind.direction+'</p>';
       html += '<p>weather.wind.speed: '+weather.wind.speed+'</p>';
 
-      html += '<p>weather.temp_c: '+weather.temp_c+'</p>';
-      html += '<p>weather.high_c: '+weather.high_c+'</p>';
-      html += '<p>weather.low_c: '+weather.low_c+'</p>';
-
       for(var i=0;i<weather.forecast.length;i++) {
         html += '<p>weather.forecast['+i+'].date: '+weather.forecast[i].date.day+' '+weather.forecast[i].date.monthname+' '+weather.forecast[i].date.year+'</p>';
         html += '<p>weather.forecast['+i+'].day: '+weather.forecast[i].date.weekday+'</p>';
         html += '<p>weather.forecast['+i+'].high: '+weather.forecast[i].high.fahrenheit+'</p>';
         html += '<p>weather.forecast['+i+'].low: '+weather.forecast[i].low.fahrenheit+'</p>';
-        html += '<p>weather.forecast['+i+'].alt.high: '+weather.forecast[i].high.celsius+'</p>';
-        html += '<p>weather.forecast['+i+'].alt.low: '+weather.forecast[i].low.celsius+'</p>';
+        html += '<p>weather.forecast['+i+'].high.celsius: '+weather.forecast[i].high.celsius+'</p>';
+        html += '<p>weather.forecast['+i+'].low.celsius: '+weather.forecast[i].low.celsius+'</p>';
         html += '<p>weather.forecast['+i+'].image: '+weather.forecast[i].icon_url+'</p>';
         html += '<p>weather.forecast['+i+'].text: '+weather.forecast[i].conditions+'</p>';
       }

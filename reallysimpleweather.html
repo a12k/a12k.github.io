@@ -14,14 +14,14 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <style>
+<style>
 body {
       padding-top: 50px;
   padding-bottom: 20px;
 }
 
 </style>
-	<script>
+<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -47,9 +47,10 @@ body {
     <div class="jumbotron" style=background-image:url('https://s3-us-west-2.amazonaws.com/reallysimpleweather/static/img/bkg.png')>
       <div class="container">
         <h1>Really Simple Weather</h1>
-        <p>A plugin to grab the weather via the Yahoo Weather API, written in pure JavaScript with no dependencies!</p>
+        <p>A weather plugin for the Weather Underground or Yahoo Weather APIs, written in pure JavaScript with no dependencies!</p>
         <p><a class="btn btn-primary btn-lg" href="https://github.com/a12k/reallysimpleweather" role="button">Link to the project on Github &raquo;</a></p>
-		<a class="btn btn-primary btn-lg" href="https://a12k.io/reallysimpleweatherfulldata" role="button">Link to simple example of all weather data returned &raquo;</a></p>
+		<p><a class="btn btn-primary btn-lg" href="https://a12k.io/reallysimpleweatherfulldata" role="button">Yahoo weather data returned &raquo;</a>
+		<a class="btn btn-primary btn-lg" href="https://a12k.io/wureallysimpleweatherfulldata" role="button">Weather Underground weather data returned &raquo;</a></p>
       </div>
     </div>
     <div class="container">
@@ -64,7 +65,8 @@ body {
       <div class="row">
         <div class="col-md-4">
           <h2>Easy Access to the API</h2>
-          <p>The 3.4kB library talks to the Yahoo Weather API for you, you just tell it your location and it returns all the current condition and forecast for your use.</p>
+          <p>The library talks to the Yahoo Weather API or the Weather Underground API for you, you just tell it your location and it returns all the current condition and forecast for your use. With Weather Underground,
+		  you will need a personal <a href="https://www.wunderground.com/weather/api/">Weather Underground API key</a>, which you can get for free <a href="https://www.wunderground.com/weather/api/">here.</a></p>
 
         </div>
         <div class="col-md-4">
@@ -80,9 +82,12 @@ body {
 
         </div>
       </div>
-	        <div class="row">
+	  
+	  <!-- Yahoo Weather API Example -->
+	    <div class="row">
         <div class="col-md-12" style="color: #49ADE3;">
-          <h2><center>Three steps to add live weather data to your site right now:</center></h2>
+          <h2><center>Three steps to add <font style="color:red;">Yahoo</font> weather data to your site right now:</center></h2>
+		  <p><center><a class="btn btn-primary btn-lg" href="https://github.com/a12k/yahooreallysimpleweatherexample" role="button">Link to this full working example &raquo;</a></center></p>
         </div>
         
       </div>
@@ -92,17 +97,18 @@ body {
           <pre><code>&ltdiv id="weather"&gt&lt/div&gt</code></pre>
         </div>
         <div class="col-md-4">
-          <h3>Add a basic script to your html body:</h3>
+          <h3>Add a basic script to your html body (you can drop this in "as-is"):</h3>
 
 		  <pre><code>&ltscript&gt
 reallySimpleWeather.weather({
-    location: 'Bend, OR', //your location here
+    wunderkey: '', // leave blank for Yahoo
+    location: 'Bend, OR', //your location 
     woeid: '', // "Where on Earth ID"
     unit: 'f', // 'c' also works
     success: function(weather) {
-      html = '&lth2&gt&lti class="icon-'+weather.code+'"&gt&lt/i&gt '+weather.temp+'&deg;'+weather.units.temp+'&lt/h2&gt';
+      html = '&lth2&gt'+weather.temp+'°'+weather.units.temp+'&lt/h2&gt';
       html += '&ltul&gt&ltli&gt'+weather.city+', '+weather.region+'&lt/li&gt';
-      html += '&ltli class="currently"&gt'+weather.currently+'&lt/li&gt';
+      html += '&ltli&gt'+weather.currently+'&lt/li&gt';
       html += '&ltli&gt'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'&lt/li&gt&lt/ul&gt';
 	  document.getElementById('weather').innerHTML = html;
     },
@@ -116,12 +122,53 @@ reallySimpleWeather.weather({
         </div>
         <div class="col-md-4">
           <h3>Add a link to the library in your header:</h3>
-<pre><code>&ltscript src="https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.0.0.min.js"&gt&lt/script&gt</code></pre>
+<pre><code>&ltscript src="https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.1.0.min.js"&gt&lt/script&gt</code></pre>
         </div>
       </div>
-	  	   <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-		  <a class="btn btn-primary btn-lg" href="https://a12k.io/reallysimpleweatherfulldata" role="button">Simple example of all weather data returned &raquo;</a></p>
+	  
+	  <!-- Weather Underground API Example -->
+	    <div class="row">
+        <div class="col-md-12" style="color: #49ADE3;">
+          <h2><center>Three steps to add <font style="color:red;">Weather Underground</font> weather data to your site right now: </center></h2>
+		  <p><center><a class="btn btn-primary btn-lg" href="https://github.com/a12k/wureallysimpleweatherexample" role="button">Link to this full working example &raquo;</a></center></p>
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Add the "weather" div to your html body:</h3>
+          <pre><code>&ltdiv id="weather"&gt&lt/div&gt</code></pre>
+        </div>
+        <div class="col-md-4">
+          <h3>Add a basic script to your html body (make sure to add your <a href="https://www.wunderground.com/weather/api/">wunderground key</a>):</h3>
+
+		  <pre><code>&ltscript&gt
+reallySimpleWeather.weather({
+    wunderkey: '', //add your key
+    location: 'Bend, OR',
+    woeid: '',
+    unit: 'f',
+    success: function(weather) {
+      html = '&lth2&gt'+weather.temp+'°' + 'F&lt/h2&gt';
+	  html += '&ltul&gt&ltli&gt'+weather.full + '&lt/li&gt';
+      html += '&ltli&gt'+weather.currently+'&lt/li&gt';
+	  html += '&ltli&gt'+weather.wind.direction+' '+weather.wind.speed+' mph&lt/li&gt&lt/ul&gt';
+	  document.getElementById('weather').innerHTML = html;
+    },
+    error: function(error) {
+	  document.getElementById('weather').innerHTML = '&ltp&gt'+error+'&lt/p&gt';
+    }
+});
+&lt/script&gt
+</code></pre>
+
+<p>Note: You will need a <a href="https://www.wunderground.com/weather/api/">free Weather Underground API key</a> to use this feature, which you can get <a href="https://www.wunderground.com/weather/api/">here</a></p>
+
+		  
+        </div>
+        <div class="col-md-4">
+          <h3>Add a link to the library in your header:</h3>
+<pre><code>&ltscript src="https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.1.0.min.js"&gt&lt/script&gt</code></pre>
         </div>
       </div>
 	  	  	<div class="row">
@@ -131,7 +178,7 @@ reallySimpleWeather.weather({
 		<pre><code>bower install reallysimpleweather</code></pre>
 		  <pre><code>npm install reallySimpleWeather</code></pre>
 		  <h4>Link directly from Amazon, or download it and run locally:</h4>
-		  <pre><code>https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.0.0.min.js</code></pre>
+		  <pre><code>https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.1.0.min.js</code></pre>
         </div>
 
       </div>
@@ -145,7 +192,7 @@ reallySimpleWeather.weather({
     <!-- Bootstrap core JavaScript
     ================================================== -->
 
-	<script src="https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.0.0.min.js"></script>
+	<script src="https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.1.0.min.js"></script>
 <script>
 // Docs at http://simpleweatherjs.com
 
@@ -170,6 +217,7 @@ document.getElementById("js-geolocation").onclick = function(){
 
 function loadWeather(location, woeid) {
   reallySimpleWeather.weather({
+  wunderkey: '',
     location: location,
     woeid: woeid,
     unit: 'f',
